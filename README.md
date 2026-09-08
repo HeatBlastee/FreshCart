@@ -1,0 +1,294 @@
+# GoShop
+
+[![CI](https://github.com/quangdangfit/goshop/workflows/CI/badge.svg)](https://github.com/quangdangfit/goshop/actions)
+[![codecov](https://codecov.io/gh/quangdangfit/goshop/graph/badge.svg?token=78BO8FQDB0)](https://codecov.io/gh/quangdangfit/goshop)
+![Go Version](https://img.shields.io/github/go-mod/go-version/quangdangfit/goshop?style=flat-square)
+[![License](https://img.shields.io/github/license/jrapoport/gothic?style=flat-square)](https://github.com/quangdangfit/goshop/blob/master/LICENSE)
+
+A production-ready e-commerce application built with Go (REST + gRPC backend) and React (web frontend).
+
+## Architecture
+
+The application runs two servers concurrently (backend) plus a React web frontend:
+
+- **HTTP (REST)** — Gin framework, port `8888`
+- **gRPC** — port `8889`, with JWT auth interceptor
+
+Each domain (`user`, `product`, `order`, `payment`, `notification`) follows a ports-and-adapters layout:
+
+```
+internal/{domain}/
+├── model/       # GORM models
+├── dto/         # Request/response structs with validation tags
+├── repository/  # Database access (depends on dbs.Database interface)
+├── service/     # Business logic (depends on repository interfaces)
+└── port/
+    ├── http/    # Gin handlers and route registration
+    └── grpc/    # gRPC handlers and server registration
+```
+
+| Domain | HTTP | gRPC |
+|--------|------|------|
+| user | ✓ | ✓ |
+| product | ✓ | ✓ |
+| order | ✓ | ✓ |
+| payment | ✓ | — |
+| notification | ✓ | — |
+
+## Tech Stack
+
+**Backend**
+
+| Concern | Library |
+|---------|---------|
+| HTTP framework | [Gin v1.12](https://github.com/gin-gonic/gin) |
+| gRPC | [grpc-go v1.79](https://github.com/grpc/grpc-go) |
+| ORM | [GORM v1.31](https://gorm.io) + PostgreSQL |
+| Cache | [go-redis v9](https://github.com/redis/go-redis) |
+| Auth | JWT ([golang-jwt v5](https://github.com/golang-jwt/jwt)) |
+| Validation | [gocommon/validation](https://github.com/quangdangfit/gocommon) |
+| API Docs | [Swagger](https://github.com/swaggo/swag) |
+| Testing | [testify v1.11](https://github.com/stretchr/testify) + [mockery](https://github.com/vektra/mockery) |
+| Proto codegen | [buf](https://buf.build) + [protobuf v1.36](https://google.golang.org/protobuf) |
+
+**Frontend**
+
+| Concern | Library |
+|---------|---------|
+| Framework | [React 18](https://react.dev) + TypeScript |
+| Build tool | [Vite](https://vitejs.dev) |
+| Styling | [Tailwind CSS](https://tailwindcss.com) |
+| Routing | [React Router v6](https://reactrouter.com) |
+| Data fetching | [TanStack Query](https://tanstack.com/query) |
+| Forms | [React Hook Form](https://react-hook-form.com) + [Zod](https://zod.dev) |
+| HTTP client | [Axios](https://axios-http.com) |
+
+## Prerequisites
+
+- Go 1.26+
+- Node.js 18+
+- PostgreSQL
+- Redis
+
+Docker Compose for local dependencies: [docker-compose-template](https://github.com/quangdangfit/docker-compose-template/blob/master/base/docker-compose.yml)
+
+## Getting Started
+
+**1. Clone and configure**
+
+```bash
+git clone https://github.com/quangdangfit/goshop.git
+cd goshop
+cp config.sample.yaml config.yaml
+```
+
+Edit `config.yaml` (lives at the repo root and is loaded from the working directory; override with `CONFIG_FILE=/path/to/config.yaml`):
+
+```yaml
+environment: production
+http_port: 8888
+grpc_port: 8889
+auth_secret: your-secret-key
+database_uri: postgres://username:password@localhost:5432/goshop
+redis_uri: localhost:6379
+redis_password:
+redis_db: 0
+
+# Stripe (payments)
+stripe_secret_key: sk_test_xxx
+stripe_webhook_secret: whsec_xxx
+stripe_publishable_key: pk_test_xxx
+
+# SMTP (notifications — point at MailHog locally: host=localhost, port=1025)
+smtp_host:
+smtp_port: 25
+email_from: no-reply@goshop.local
+```
+
+**2. Apply database migrations**
+
+The app no longer runs `AutoMigrate` — schema lives in versioned SQL files under
+`migrations/` and is applied with [golang-migrate](https://github.com/golang-migrate/migrate).
+
+```bash
+brew install golang-migrate   # or: go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+DATABASE_URI="postgres://username:password@localhost:5432/goshop?sslmode=disable" make migrate-up
+```
+
+See [`migrations/README.md`](migrations/README.md) for conventions and the
+production / Kubernetes init-container pattern.
+
+**3. Run the backend**
+
+```bash
+go run cmd/api/main.go
+```
+
+```
+INFO    HTTP server is listening on PORT: 8888
+INFO    GRPC server is listening on PORT: 8889
+```
+
+**4. Run the web frontend**
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+Web UI: [http://localhost:3000](http://localhost:3000)
+
+> The frontend proxies all `/api` requests to the backend at `http://localhost:8888`, so both servers must be running.
+
+**5. Browse the API**
+
+Swagger UI: [http://localhost:8888/swagger/index.html](http://localhost:8888/swagger/index.html)
+
+## API Reference
+
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/auth/register` | Register |
+| POST | `/api/v1/auth/login` | Login |
+| POST | `/api/v1/auth/refresh` | Refresh access token |
+| GET | `/api/v1/auth/me` | Get current user |
+| PUT | `/api/v1/auth/change-password` | Change password |
+
+### Addresses
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/addresses` | List my addresses |
+| POST | `/api/v1/addresses` | Create address |
+| GET | `/api/v1/addresses/:id` | Get address |
+| PUT | `/api/v1/addresses/:id` | Update address |
+| DELETE | `/api/v1/addresses/:id` | Delete address |
+| PUT | `/api/v1/addresses/:id/default` | Set default address |
+
+### Wishlist
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/wishlist` | Get my wishlist |
+| POST | `/api/v1/wishlist` | Add product to wishlist |
+| DELETE | `/api/v1/wishlist/:productId` | Remove from wishlist |
+
+### Categories
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/categories` | List categories |
+| GET | `/api/v1/categories/:id` | Get category |
+| POST | `/api/v1/categories` | Create category (auth) |
+| PUT | `/api/v1/categories/:id` | Update category (auth) |
+| DELETE | `/api/v1/categories/:id` | Delete category (auth) |
+
+### Products
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/products` | List products (cached) |
+| GET | `/api/v1/products/:id` | Get product (cached) |
+| POST | `/api/v1/products` | Create product (auth) |
+| PUT | `/api/v1/products/:id` | Update product (auth) |
+| GET | `/api/v1/products/:id/reviews` | List product reviews |
+| POST | `/api/v1/products/:id/reviews` | Create review (auth) |
+| PUT | `/api/v1/products/:id/reviews/:reviewId` | Update review (auth) |
+| DELETE | `/api/v1/products/:id/reviews/:reviewId` | Delete review (auth) |
+
+### Orders
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/orders` | Place order |
+| GET | `/api/v1/orders` | List my orders |
+| GET | `/api/v1/orders/:id` | Get order details |
+| PUT | `/api/v1/orders/:id/cancel` | Cancel order |
+| PUT | `/api/v1/orders/:id/status` | Update order status (admin) |
+
+### Coupons
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/coupons` | Create coupon (auth) |
+| GET | `/api/v1/coupons/:code` | Get coupon by code |
+
+### Payments
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/orders/:id/payment-intent` | Create Stripe PaymentIntent for order |
+| POST | `/api/v1/webhooks/stripe` | Stripe webhook (signature-verified, no JWT) |
+| GET | `/api/v1/config/public` | Public client config (Stripe publishable key) |
+
+### Notifications
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/me/notification-preferences` | Get my notification preferences |
+| PUT | `/api/v1/me/notification-preferences` | Update notification preferences |
+
+> Cart is client-side only (persisted in the browser). Order creation accepts the full
+> line items and the server re-validates products, prices, and stock.
+
+## Development
+
+**Run all unit tests with coverage**
+
+```bash
+make unittest
+```
+
+**Run a single test suite**
+
+```bash
+go test ./internal/product/service/... -v -run TestProductServiceTestSuite
+```
+
+**Run a single test case**
+
+```bash
+go test ./internal/product/service/... -v -run TestProductServiceTestSuite/TestCreateSuccess
+```
+
+**Run integration tests**
+
+Integration suites live under `tests/integration/` (per-domain: `order`,
+`payment`, `user`, `product`, `notification`), are gated by the
+`//go:build integration` tag, and use [testcontainers](https://golang.testcontainers.org/)
+to spin up real Postgres / Redis / MailHog. They are invisible to `make
+unittest` / `go test ./...`.
+
+```bash
+make integration
+# = go test -tags=integration -timeout 9000s -v -coverprofile=coverage.integration.out ./tests/integration/...
+```
+
+Requirements: a running Docker daemon. The shared helpers (`StartPostgres`,
+`StartRedis`, `NewHTTPEnv`) live in `tests/testutil/`. CI runs the
+integration job in parallel with the unit job; both upload coverage to
+Codecov under the `unittest` / `integration` flags.
+
+**Database migrations**
+
+```bash
+make migrate-up                  # apply all pending migrations
+make migrate-down                # roll back the latest migration
+make migrate-status              # print current schema version
+make migrate-new name=add_index  # scaffold the next NNNN_*.{up,down}.sql pair
+```
+
+Set `DATABASE_URI` in your shell to override the default
+(`postgres://postgres:test@localhost:5432/goshop?sslmode=disable`).
+
+**Regenerate mocks**
+
+```bash
+make mock
+```
+
+**Regenerate Swagger docs**
+
+```bash
+make doc
+```
+
+**Regenerate proto (Uses https://buf.build)**
+
+```bash
+cd proto && make build
+```

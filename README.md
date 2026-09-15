@@ -1,6 +1,13 @@
 # FreshCart
 
-A production-ready e-commerce application built with Go (REST + gRPC backend) and React (web frontend).
+FreshCart is a full-stack e-commerce platform with a Go backend (REST + gRPC) and a React storefront. It covers the parts a real store needs — catalog browsing and search, cart and checkout, Stripe payments, order tracking, coupons, wishlists, product reviews, and transactional email — built on a ports-and-adapters architecture with JWT (or OIDC) auth, versioned SQL migrations, and both unit and Docker-backed integration test suites.
+
+**Highlights**
+- Clean domain separation (`user`, `product`, `order`, `payment`, `notification`), each independently testable behind repository/service interfaces
+- REST and gRPC exposed side by side for the same business logic
+- Stripe-backed checkout with webhook-verified payment confirmation
+- Pluggable auth: local JWT by default, or OIDC via Authentik for SSO setups
+- CI-covered: unit tests, testcontainer-based integration tests, linting, and generated Swagger docs
 
 ## Architecture
 

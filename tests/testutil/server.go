@@ -8,10 +8,10 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/quangdangfit/gocommon/validation"
 
-	httpServer "goshop/internal/server/http"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/redis"
+	httpServer "freshcart/internal/server/http"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/redis"
 )
 
 // HTTPTestEnv bundles the live components an HTTP integration suite needs. Cleanup

@@ -14,12 +14,12 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	svcMocks "goshop/internal/order/service/mocks"
-	"goshop/pkg/config"
-	"goshop/pkg/response"
-	"goshop/pkg/utils"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	svcMocks "freshcart/internal/order/service/mocks"
+	"freshcart/pkg/config"
+	"freshcart/pkg/response"
+	"freshcart/pkg/utils"
 )
 
 type CouponHandlerTestSuite struct {

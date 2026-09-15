@@ -3,8 +3,8 @@ package repository
 import (
 	"context"
 
-	"goshop/internal/order/model"
-	"goshop/pkg/dbs"
+	"freshcart/internal/order/model"
+	"freshcart/pkg/dbs"
 )
 
 type UserRepository interface {

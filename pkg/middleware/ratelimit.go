@@ -8,9 +8,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"goshop/pkg/config"
-	"goshop/pkg/redis"
-	"goshop/pkg/response"
+	"freshcart/pkg/config"
+	"freshcart/pkg/redis"
+	"freshcart/pkg/response"
 )
 
 // rateLimitExemptPaths are routes that must never be rate-limited regardless of client IP.

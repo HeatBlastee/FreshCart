@@ -5,10 +5,10 @@ import (
 
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/service"
-	"goshop/pkg/apperror"
-	pb "goshop/proto/gen/go/order"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/service"
+	"freshcart/pkg/apperror"
+	pb "freshcart/proto/gen/go/order"
 )
 
 type OrderHandler struct {

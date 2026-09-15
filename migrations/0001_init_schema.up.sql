@@ -1,4 +1,4 @@
--- Initial schema for goshop. Mirrors the AutoMigrate output that previously ran on
+-- Initial schema for freshcart. Mirrors the AutoMigrate output that previously ran on
 -- app startup. Every CREATE is guarded with IF NOT EXISTS so this migration is safe
 -- to apply (or re-apply) on a fresh database or one that already has the tables.
 

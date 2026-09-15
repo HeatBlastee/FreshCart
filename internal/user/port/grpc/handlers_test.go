@@ -9,11 +9,11 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	domain "goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	"goshop/internal/user/service/mocks"
-	"goshop/pkg/config"
-	pb "goshop/proto/gen/go/user"
+	domain "freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	"freshcart/internal/user/service/mocks"
+	"freshcart/pkg/config"
+	pb "freshcart/proto/gen/go/user"
 )
 
 type UserHandlerTestSuite struct {

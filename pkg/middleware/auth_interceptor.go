@@ -8,8 +8,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	"goshop/pkg/apperror"
-	"goshop/pkg/jtoken"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/jtoken"
 )
 
 type AuthInterceptor struct {

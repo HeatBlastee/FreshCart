@@ -50,7 +50,7 @@ export default function RegisterPage() {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 font-bold text-2xl text-primary-600 mb-4">
             <Store className="h-7 w-7" />
-            GoShop
+            FreshCart
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">Create an account</h1>
           <p className="text-gray-500 mt-1">Start shopping today</p>

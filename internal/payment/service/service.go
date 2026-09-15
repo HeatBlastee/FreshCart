@@ -7,11 +7,11 @@ import (
 
 	"gorm.io/gorm"
 
-	orderModel "goshop/internal/order/model"
-	orderService "goshop/internal/order/service"
-	"goshop/internal/payment/model"
-	"goshop/internal/payment/repository"
-	"goshop/pkg/payment"
+	orderModel "freshcart/internal/order/model"
+	orderService "freshcart/internal/order/service"
+	"freshcart/internal/payment/model"
+	"freshcart/internal/payment/repository"
+	"freshcart/pkg/payment"
 )
 
 const stripeProvider = "stripe"

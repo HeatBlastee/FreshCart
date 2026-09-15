@@ -18,23 +18,23 @@ rate_limit_window_seconds: 60
 auth_mode: jwt
 
 # OIDC / Authentik — only required when auth_mode = oidc
-oidc_issuer: https://auth.cunghoclaptrinh.online/application/o/goshop-api/
-oidc_client_id: goshop-api-client
+oidc_issuer: https://auth.your-domain.example/application/o/freshcart-api/
+oidc_client_id: freshcart-api-client
 oidc_client_secret: ######
-oidc_redirect_url: https://goshop.cunghoclaptrinh.online/api/v1/auth/callback
-oidc_jwks_url: https://auth.cunghoclaptrinh.online/application/o/goshop-api/jwks/
+oidc_redirect_url: https://freshcart.your-domain.example/api/v1/auth/callback
+oidc_jwks_url: https://auth.your-domain.example/application/o/freshcart-api/jwks/
 oidc_scopes: openid,email,profile
-# Where the OIDC callback redirects the browser after minting GoShop tokens.
-frontend_base_url: https://goshop.cunghoclaptrinh.online
+# Where the OIDC callback redirects the browser after minting FreshCart tokens.
+frontend_base_url: https://freshcart.your-domain.example
 
 # Headless Authentik (auth_mode = oidc only). API base is the server URL
 # without trailing slash; the admin token is a long-lived API token created
 # under Directory → Tokens.
-authentik_api_base: https://auth.cunghoclaptrinh.online
+authentik_api_base: https://auth.your-domain.example
 authentik_admin_token: ######
 # Authentication flow slug used by flow executor for headless password
 # verification. Must contain only Identification + Password stages.
-authentik_flow_slug: goshop-ropg
+authentik_flow_slug: freshcart-ropg
 
 # Stripe — required for payments. webhook_secret is given by `stripe listen`
 # or the dashboard; api_base is only set in tests to point at stripe-mock.
@@ -49,4 +49,4 @@ smtp_host:
 smtp_port: 25
 smtp_user:
 smtp_password:
-email_from: no-reply@goshop.local
+email_from: no-reply@freshcart.local

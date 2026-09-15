@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/validation"
 
-	dbMocks "goshop/pkg/dbs/mocks"
-	redisMocks "goshop/pkg/redis/mocks"
+	dbMocks "freshcart/pkg/dbs/mocks"
+	redisMocks "freshcart/pkg/redis/mocks"
 )
 
 func TestRoutes(t *testing.T) {

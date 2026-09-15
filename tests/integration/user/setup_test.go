@@ -16,13 +16,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	orderModel "goshop/internal/order/model"
-	productModel "goshop/internal/product/model"
-	userDomain "goshop/internal/user/domain"
-	userModel "goshop/internal/user/model"
-	"goshop/pkg/dbs"
-	"goshop/pkg/redis"
-	"goshop/tests/testutil"
+	orderModel "freshcart/internal/order/model"
+	productModel "freshcart/internal/product/model"
+	userDomain "freshcart/internal/user/domain"
+	userModel "freshcart/internal/user/model"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/redis"
+	"freshcart/tests/testutil"
 )
 
 var (

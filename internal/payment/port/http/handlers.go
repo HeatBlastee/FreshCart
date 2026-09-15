@@ -7,9 +7,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/payment/service"
-	"goshop/pkg/payment"
-	"goshop/pkg/response"
+	"freshcart/internal/payment/service"
+	"freshcart/pkg/payment"
+	"freshcart/pkg/response"
 )
 
 // stripeSignatureHeader is the header Stripe uses for webhook HMAC delivery.

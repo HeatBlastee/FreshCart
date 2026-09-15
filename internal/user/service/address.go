@@ -5,10 +5,10 @@ import (
 
 	"github.com/quangdangfit/gocommon/validation"
 
-	"goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	"goshop/internal/user/repository"
-	"goshop/pkg/utils"
+	"freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	"freshcart/internal/user/repository"
+	"freshcart/pkg/utils"
 )
 
 //go:generate mockery --name=AddressService

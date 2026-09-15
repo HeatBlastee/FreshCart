@@ -9,11 +9,11 @@ import (
 	"github.com/stretchr/testify/require"
 	"gorm.io/gorm"
 
-	orderModel "goshop/internal/order/model"
-	orderSvcMocks "goshop/internal/order/service/mocks"
-	"goshop/internal/payment/model"
-	"goshop/internal/payment/repository"
-	"goshop/pkg/payment"
+	orderModel "freshcart/internal/order/model"
+	orderSvcMocks "freshcart/internal/order/service/mocks"
+	"freshcart/internal/payment/model"
+	"freshcart/internal/payment/repository"
+	"freshcart/pkg/payment"
 )
 
 type stubProvider struct {

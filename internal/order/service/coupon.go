@@ -6,10 +6,10 @@ import (
 
 	"github.com/quangdangfit/gocommon/validation"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	"goshop/internal/order/repository"
-	"goshop/pkg/apperror"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	"freshcart/internal/order/repository"
+	"freshcart/pkg/apperror"
 )
 
 //go:generate mockery --name=CouponService

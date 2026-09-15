@@ -12,10 +12,10 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs/mocks"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs/mocks"
 )
 
 func newProductSQLMockGormDB(t *testing.T) (*gorm.DB, sqlmock.Sqlmock) {

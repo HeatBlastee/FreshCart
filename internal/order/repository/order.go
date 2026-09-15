@@ -3,11 +3,11 @@ package repository
 import (
 	"context"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	"goshop/pkg/dbs"
-	"goshop/pkg/paging"
-	"goshop/pkg/utils"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/paging"
+	"freshcart/pkg/utils"
 )
 
 //go:generate mockery --name=OrderRepository

@@ -12,7 +12,7 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/stretchr/testify/require"
 
-	"goshop/pkg/config"
+	"freshcart/pkg/config"
 )
 
 func setupCartTelemetryCtx(userID string, body any) (*gin.Context, *httptest.ResponseRecorder) {

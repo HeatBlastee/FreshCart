@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/user/model"
+	"freshcart/internal/user/model"
 )
 
 func TestUserFromModel_Nil(t *testing.T) {

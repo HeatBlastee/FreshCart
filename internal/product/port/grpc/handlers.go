@@ -5,11 +5,11 @@ import (
 
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/service"
-	"goshop/pkg/apperror"
-	"goshop/pkg/utils"
-	pb "goshop/proto/gen/go/product"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/service"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/utils"
+	pb "freshcart/proto/gen/go/product"
 )
 
 type ProductHandler struct {

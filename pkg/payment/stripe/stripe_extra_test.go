@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"goshop/pkg/payment"
+	"freshcart/pkg/payment"
 )
 
 func TestNewProvider_AppliesDefaults(t *testing.T) {

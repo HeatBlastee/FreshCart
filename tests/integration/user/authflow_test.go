@@ -16,9 +16,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	userDomain "goshop/internal/user/domain"
-	userModel "goshop/internal/user/model"
-	"goshop/pkg/jtoken"
+	userDomain "freshcart/internal/user/domain"
+	userModel "freshcart/internal/user/model"
+	"freshcart/pkg/jtoken"
 )
 
 // Register → login → me → change-password → re-login (new password).

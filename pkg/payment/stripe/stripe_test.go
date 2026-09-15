@@ -15,7 +15,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"goshop/pkg/payment"
+	"freshcart/pkg/payment"
 )
 
 func sign(secret string, ts int64, body []byte) string {

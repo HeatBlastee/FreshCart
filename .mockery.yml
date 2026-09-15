@@ -11,30 +11,30 @@ require-template-schema-exists: true
 template: testify
 template-schema: '{{.Template}}.schema.json'
 packages:
-  goshop/pkg/dbs:
+  freshcart/pkg/dbs:
     config:
       all: true
-  goshop/pkg/redis:
+  freshcart/pkg/redis:
     config:
       all: true
-  goshop/pkg/notification:
+  freshcart/pkg/notification:
     config:
       all: true
-  goshop/internal/product/repository:
+  freshcart/internal/product/repository:
     config:
       all: true
-  goshop/internal/product/service:
+  freshcart/internal/product/service:
     config:
       all: true
-  goshop/internal/order/repository:
+  freshcart/internal/order/repository:
     config:
       all: true
-  goshop/internal/order/service:
+  freshcart/internal/order/service:
     config:
       all: true
-  goshop/internal/user/repository:
+  freshcart/internal/user/repository:
     config:
       all: true
-  goshop/internal/user/service:
+  freshcart/internal/user/service:
     config:
       all: true

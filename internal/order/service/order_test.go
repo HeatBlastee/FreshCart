@@ -11,14 +11,14 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	orderMocks "goshop/internal/order/repository/mocks"
-	serviceMocks "goshop/internal/order/service/mocks"
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
-	notifMocks "goshop/pkg/notification/mocks"
-	"goshop/pkg/paging"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	orderMocks "freshcart/internal/order/repository/mocks"
+	serviceMocks "freshcart/internal/order/service/mocks"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
+	notifMocks "freshcart/pkg/notification/mocks"
+	"freshcart/pkg/paging"
 )
 
 type OrderServiceTestSuite struct {

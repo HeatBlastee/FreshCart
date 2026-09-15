@@ -14,10 +14,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	"goshop/pkg/config"
-	"goshop/pkg/paging"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	"freshcart/pkg/config"
+	"freshcart/pkg/paging"
 )
 
 var errCacheMiss = errors.New("cache miss")

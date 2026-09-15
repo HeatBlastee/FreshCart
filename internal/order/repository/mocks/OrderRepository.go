@@ -6,9 +6,9 @@ package mocks
 
 import (
 	"context"
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	"goshop/pkg/paging"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	"freshcart/pkg/paging"
 
 	mock "github.com/stretchr/testify/mock"
 )

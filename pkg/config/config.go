@@ -71,9 +71,9 @@ type Schema struct {
 	// flow executor API (Identification + Password stages only — no MFA).
 	AuthentikAPIBase    string `env:"authentik_api_base"`
 	AuthentikAdminToken string `env:"authentik_admin_token"`
-	AuthentikFlowSlug   string `env:"authentik_flow_slug" envDefault:"goshop-ropg"`
+	AuthentikFlowSlug   string `env:"authentik_flow_slug" envDefault:"freshcart-ropg"`
 	// FrontendBaseURL is where the OIDC callback redirects the browser to after
-	// minting the GoShop JWT pair (e.g. https://goshop.example.com). The FE must
+	// minting the FreshCart JWT pair (e.g. https://freshcart.example.com). The FE must
 	// expose a /auth/callback route that reads access_token + refresh_token
 	// from the query string.
 	FrontendBaseURL string `env:"frontend_base_url" envDefault:"http://localhost:5173"`

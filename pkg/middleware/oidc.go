@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"goshop/pkg/oidc"
+	"freshcart/pkg/oidc"
 )
 
 // OIDCAuth validates the Bearer ID token issued by Authentik and injects user
@@ -47,11 +47,11 @@ func OIDCAuth(validator *oidc.Validator) gin.HandlerFunc {
 	}
 }
 
-// mapAuthentikGroupsToRole maps Authentik group names to GoShop roles.
+// mapAuthentikGroupsToRole maps Authentik group names to FreshCart roles.
 // Defaults to "customer"; only the groups listed below promote to "admin".
 func mapAuthentikGroupsToRole(groups []string) string {
 	for _, g := range groups {
-		if g == "goshop-admins" || g == "admin" {
+		if g == "freshcart-admins" || g == "admin" {
 			return "admin"
 		}
 	}

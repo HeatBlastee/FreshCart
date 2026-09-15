@@ -10,14 +10,14 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	"gorm.io/gorm"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	orderRepo "goshop/internal/order/repository"
-	"goshop/pkg/apperror"
-	"goshop/pkg/dbs"
-	"goshop/pkg/eventbus"
-	"goshop/pkg/notification"
-	"goshop/pkg/paging"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	orderRepo "freshcart/internal/order/repository"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/eventbus"
+	"freshcart/pkg/notification"
+	"freshcart/pkg/paging"
 )
 
 // ReservationTTL is how long a placed order holds reserved stock before the sweeper releases

@@ -10,10 +10,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	"goshop/internal/product/repository/mocks"
-	"goshop/pkg/config"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	"freshcart/internal/product/repository/mocks"
+	"freshcart/pkg/config"
 )
 
 type CategoryServiceTestSuite struct {

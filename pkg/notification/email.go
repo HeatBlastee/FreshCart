@@ -75,11 +75,11 @@ var emailTemplates = map[string]struct {
 }{
 	"order_placed": {
 		Subject: "Order #{{.OrderID}} received",
-		Body:    "Hi,\n\nWe've received your order {{.OrderID}} and reserved your items for 15 minutes while we process payment.\n\nThanks for shopping with GoShop.",
+		Body:    "Hi,\n\nWe've received your order {{.OrderID}} and reserved your items for 15 minutes while we process payment.\n\nThanks for shopping with FreshCart.",
 	},
 	"order_status_changed": {
 		Subject: "Order #{{.OrderID}}: now {{.Status}}",
-		Body:    "Hi,\n\nYour order {{.OrderID}} is now in status: {{.Status}}.\n\nThanks,\nGoShop",
+		Body:    "Hi,\n\nYour order {{.OrderID}} is now in status: {{.Status}}.\n\nThanks,\nFreshCart",
 	},
 }
 

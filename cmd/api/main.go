@@ -10,20 +10,20 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/quangdangfit/gocommon/validation"
 
-	orderRepository "goshop/internal/order/repository"
-	orderService "goshop/internal/order/service"
-	grpcServer "goshop/internal/server/grpc"
-	httpServer "goshop/internal/server/http"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/eventbus"
-	"goshop/pkg/notification"
-	"goshop/pkg/redis"
+	orderRepository "freshcart/internal/order/repository"
+	orderService "freshcart/internal/order/service"
+	grpcServer "freshcart/internal/server/grpc"
+	httpServer "freshcart/internal/server/http"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/eventbus"
+	"freshcart/pkg/notification"
+	"freshcart/pkg/redis"
 )
 
-//	@title			GoShop Swagger API
+//	@title			FreshCart Swagger API
 //	@version		1.0
-//	@description	Swagger API for GoShop.
+//	@description	Swagger API for FreshCart.
 //	@termsOfService	http://swagger.io/terms/
 
 //	@contact.name	Quang Dang

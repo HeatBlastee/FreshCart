@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	dbsMocks "goshop/pkg/dbs/mocks"
+	dbsMocks "freshcart/pkg/dbs/mocks"
 )
 
 func TestDeadLetterSink_RecordWithError(t *testing.T) {

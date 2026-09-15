@@ -9,7 +9,7 @@ import (
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/wait"
 
-	"goshop/pkg/redis"
+	"freshcart/pkg/redis"
 )
 
 // StartRedis boots a throwaway redis:alpine container and returns a wired redis.Redis.

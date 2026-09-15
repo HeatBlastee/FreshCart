@@ -11,13 +11,13 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	orderMocks "goshop/internal/order/repository/mocks"
-	serviceMocks "goshop/internal/order/service/mocks"
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
-	notifMocks "goshop/pkg/notification/mocks"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	orderMocks "freshcart/internal/order/repository/mocks"
+	serviceMocks "freshcart/internal/order/service/mocks"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
+	notifMocks "freshcart/pkg/notification/mocks"
 )
 
 func newEdgeFixture(t *testing.T) (OrderService, *orderMocks.OrderRepository, *orderMocks.ProductRepository, *orderMocks.UserRepository, *orderMocks.ReservationRepository, *notifMocks.Notifier) {

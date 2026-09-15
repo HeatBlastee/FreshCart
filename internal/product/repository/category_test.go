@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/product/model"
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
+	"freshcart/internal/product/model"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
 )
 
 type CategoryRepositoryTestSuite struct {

@@ -6,7 +6,7 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	goGRPC "google.golang.org/grpc"
 
-	"goshop/pkg/dbs/mocks"
+	"freshcart/pkg/dbs/mocks"
 )
 
 func TestRegisterHandlers(t *testing.T) {

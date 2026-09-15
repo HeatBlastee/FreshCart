@@ -5,7 +5,7 @@
 package mocks
 
 import (
-	"goshop/pkg/dbs"
+	"freshcart/pkg/dbs"
 
 	mock "github.com/stretchr/testify/mock"
 )

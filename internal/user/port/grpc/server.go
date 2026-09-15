@@ -4,10 +4,10 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	"google.golang.org/grpc"
 
-	"goshop/internal/user/repository"
-	"goshop/internal/user/service"
-	"goshop/pkg/dbs"
-	pb "goshop/proto/gen/go/user"
+	"freshcart/internal/user/repository"
+	"freshcart/internal/user/service"
+	"freshcart/pkg/dbs"
+	pb "freshcart/proto/gen/go/user"
 )
 
 func RegisterHandlers(svr *grpc.Server, db dbs.Database, validator validation.Validation) {

@@ -11,9 +11,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/order/repository"
-	productModel "goshop/internal/product/model"
-	"goshop/tests/testutil"
+	"freshcart/internal/order/repository"
+	productModel "freshcart/internal/product/model"
+	"freshcart/tests/testutil"
 )
 
 // TestReserveStock_Concurrency is the headline correctness test for the inventory flow:

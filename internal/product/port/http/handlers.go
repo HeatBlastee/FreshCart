@@ -6,13 +6,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/service"
-	"goshop/pkg/apperror"
-	"goshop/pkg/config"
-	"goshop/pkg/redis"
-	"goshop/pkg/response"
-	"goshop/pkg/utils"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/service"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/config"
+	"freshcart/pkg/redis"
+	"freshcart/pkg/response"
+	"freshcart/pkg/utils"
 )
 
 type ProductHandler struct {

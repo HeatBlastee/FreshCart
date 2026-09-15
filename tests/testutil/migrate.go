@@ -9,7 +9,7 @@ import (
 	migratepg "github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 
-	"goshop/pkg/dbs"
+	"freshcart/pkg/dbs"
 )
 
 // MigrationsDir returns the absolute path to the repo-root `migrations/` directory.

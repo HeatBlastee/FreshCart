@@ -3,9 +3,9 @@ package repository
 import (
 	"context"
 
-	"goshop/internal/product/model"
-	"goshop/pkg/dbs"
-	"goshop/pkg/paging"
+	"freshcart/internal/product/model"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/paging"
 )
 
 //go:generate mockery --name=ReviewRepository

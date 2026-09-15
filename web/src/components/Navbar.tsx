@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 font-bold text-xl text-primary-600">
             <Store className="h-6 w-6" />
-            GoShop
+            FreshCart
           </Link>
 
           {/* Nav links */}

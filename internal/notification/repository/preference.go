@@ -6,8 +6,8 @@ import (
 
 	"gorm.io/gorm"
 
-	"goshop/internal/notification/model"
-	"goshop/pkg/dbs"
+	"freshcart/internal/notification/model"
+	"freshcart/pkg/dbs"
 )
 
 //go:generate mockery --name=PreferenceRepository

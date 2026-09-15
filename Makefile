@@ -19,7 +19,7 @@ mock:
 # Requires golang-migrate CLI: brew install golang-migrate
 # (or: go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest)
 # Reads DSN from DATABASE_URI (falls back to the value in config.yaml is the caller's job).
-DATABASE_URI ?= postgres://postgres:test@localhost:5432/goshop?sslmode=disable
+DATABASE_URI ?= postgres://postgres:test@localhost:5432/freshcart?sslmode=disable
 
 migrate-up:
 	migrate -path migrations -database "$(DATABASE_URI)" up

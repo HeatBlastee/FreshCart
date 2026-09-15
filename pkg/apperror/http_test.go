@@ -11,7 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 
-	"goshop/pkg/config"
+	"freshcart/pkg/config"
 )
 
 func init() {

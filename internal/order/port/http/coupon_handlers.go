@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/service"
-	"goshop/pkg/apperror"
-	"goshop/pkg/response"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/service"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/response"
 )
 
 type CouponHandler struct {

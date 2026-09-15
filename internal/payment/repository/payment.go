@@ -6,8 +6,8 @@ import (
 
 	"gorm.io/gorm"
 
-	"goshop/internal/payment/model"
-	"goshop/pkg/dbs"
+	"freshcart/internal/payment/model"
+	"freshcart/pkg/dbs"
 )
 
 var ErrEventAlreadyProcessed = errors.New("provider event already processed")

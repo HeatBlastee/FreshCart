@@ -8,8 +8,8 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/pkg/config"
-	"goshop/pkg/utils"
+	"freshcart/pkg/config"
+	"freshcart/pkg/utils"
 )
 
 const (

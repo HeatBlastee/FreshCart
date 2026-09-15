@@ -10,7 +10,7 @@ import (
 
 	tcpostgres "github.com/testcontainers/testcontainers-go/modules/postgres"
 
-	"goshop/pkg/dbs"
+	"freshcart/pkg/dbs"
 )
 
 // StartPostgres boots a throwaway Postgres 16 container, waits for it to accept connections,
@@ -20,7 +20,7 @@ func StartPostgres(ctx context.Context, t *testing.T) dbs.Database {
 
 	container, err := tcpostgres.Run(ctx,
 		"postgres:16-alpine",
-		tcpostgres.WithDatabase("goshop_test"),
+		tcpostgres.WithDatabase("freshcart_test"),
 		tcpostgres.WithUsername("test"),
 		tcpostgres.WithPassword("test"),
 		tcpostgres.BasicWaitStrategies(),
@@ -53,7 +53,7 @@ func StartPostgres(ctx context.Context, t *testing.T) dbs.Database {
 func StartPostgresM(ctx context.Context) (dbs.Database, func(), error) {
 	container, err := tcpostgres.Run(ctx,
 		"postgres:16-alpine",
-		tcpostgres.WithDatabase("goshop_test"),
+		tcpostgres.WithDatabase("freshcart_test"),
 		tcpostgres.WithUsername("test"),
 		tcpostgres.WithPassword("test"),
 		tcpostgres.BasicWaitStrategies(),

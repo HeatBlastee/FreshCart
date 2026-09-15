@@ -8,7 +8,7 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/stretchr/testify/assert"
 
-	"goshop/pkg/config"
+	"freshcart/pkg/config"
 )
 
 func init() {

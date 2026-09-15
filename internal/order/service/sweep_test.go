@@ -12,13 +12,13 @@ import (
 	"github.com/stretchr/testify/require"
 	"gorm.io/gorm"
 
-	"goshop/internal/order/model"
-	orderRepo "goshop/internal/order/repository"
-	orderMocks "goshop/internal/order/repository/mocks"
-	serviceMocks "goshop/internal/order/service/mocks"
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
-	notifMocks "goshop/pkg/notification/mocks"
+	"freshcart/internal/order/model"
+	orderRepo "freshcart/internal/order/repository"
+	orderMocks "freshcart/internal/order/repository/mocks"
+	serviceMocks "freshcart/internal/order/service/mocks"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
+	notifMocks "freshcart/pkg/notification/mocks"
 )
 
 type sweepFixture struct {

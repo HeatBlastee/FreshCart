@@ -1,8 +1,8 @@
 package grpc
 
 import (
-	"goshop/internal/order/model"
-	pb "goshop/proto/gen/go/order"
+	"freshcart/internal/order/model"
+	pb "freshcart/proto/gen/go/order"
 )
 
 // orderInfoFromModel returns the gRPC OrderInfo for a storage order. Removes the

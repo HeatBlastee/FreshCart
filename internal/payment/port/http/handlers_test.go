@@ -13,8 +13,8 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/stretchr/testify/require"
 
-	"goshop/pkg/config"
-	"goshop/pkg/payment"
+	"freshcart/pkg/config"
+	"freshcart/pkg/payment"
 )
 
 type stubPayments struct {

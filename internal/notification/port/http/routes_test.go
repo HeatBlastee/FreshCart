@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 
-	dbsMocks "goshop/pkg/dbs/mocks"
+	dbsMocks "freshcart/pkg/dbs/mocks"
 )
 
 func TestRoutesRegistersEndpoints(t *testing.T) {

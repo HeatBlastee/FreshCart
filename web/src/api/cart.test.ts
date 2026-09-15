@@ -77,9 +77,9 @@ describe('cartStore', () => {
   })
 
   it('discards malformed localStorage payloads', () => {
-    localStorage.setItem('goshop:cart:v1', 'not json')
+    localStorage.setItem('freshcart:cart:v1', 'not json')
     expect(cartStore.get().items).toEqual([])
-    localStorage.setItem('goshop:cart:v1', JSON.stringify({ version: 999, items: 'nope' }))
+    localStorage.setItem('freshcart:cart:v1', JSON.stringify({ version: 999, items: 'nope' }))
     expect(cartStore.get().items).toEqual([])
   })
 })

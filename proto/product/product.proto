@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package product;
 
-option go_package = "goshop/proto/gen/go/product;product";
+option go_package = "freshcart/proto/gen/go/product;product";
 
 service ProductService {
   rpc GetProductByID(GetProductByIDReq) returns (GetProductByIDRes);

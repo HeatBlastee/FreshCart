@@ -1,6 +1,6 @@
 package domain
 
-import "goshop/internal/order/model"
+import "freshcart/internal/order/model"
 
 // CouponFromModel returns the API DTO for a coupon, hiding internal columns
 // (deleted_at) and removing the unreachable utils.Copy error branches that

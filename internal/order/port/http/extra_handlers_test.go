@@ -13,11 +13,11 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	"goshop/internal/order/service"
-	srvMocks "goshop/internal/order/service/mocks"
-	"goshop/pkg/config"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	"freshcart/internal/order/service"
+	srvMocks "freshcart/internal/order/service/mocks"
+	"freshcart/pkg/config"
 )
 
 func TestPlaceOrder_UnauthorizedNoUserID(t *testing.T) {

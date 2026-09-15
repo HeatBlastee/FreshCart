@@ -4,11 +4,11 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/validation"
 
-	"goshop/internal/product/repository"
-	"goshop/internal/product/service"
-	"goshop/pkg/dbs"
-	"goshop/pkg/middleware"
-	"goshop/pkg/redis"
+	"freshcart/internal/product/repository"
+	"freshcart/internal/product/service"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/middleware"
+	"freshcart/pkg/redis"
 )
 
 func Routes(r *gin.RouterGroup, db dbs.Database, validator validation.Validation, cache redis.Redis) {

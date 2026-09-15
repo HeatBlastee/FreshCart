@@ -6,8 +6,8 @@ package mocks
 
 import (
 	"context"
-	domain "goshop/internal/user/domain"
-	"goshop/internal/user/model"
+	domain "freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
 
 	mock "github.com/stretchr/testify/mock"
 )

@@ -3,8 +3,8 @@ package middleware
 import (
 	"github.com/gin-gonic/gin"
 
-	"goshop/pkg/apperror"
-	"goshop/pkg/jtoken"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/jtoken"
 )
 
 func JWTAuth() gin.HandlerFunc {

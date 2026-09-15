@@ -3,9 +3,9 @@ package repository
 import (
 	"context"
 
-	"goshop/internal/notification/model"
-	"goshop/pkg/dbs"
-	"goshop/pkg/notification"
+	"freshcart/internal/notification/model"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/notification"
 )
 
 // dbDeadLetterSink persists exhausted notifications to the dead_letter_notifications table.

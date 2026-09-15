@@ -1,4 +1,4 @@
-module goshop
+module freshcart
 
 go 1.26
 

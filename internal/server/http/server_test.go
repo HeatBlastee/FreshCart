@@ -13,9 +13,9 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	"github.com/stretchr/testify/assert"
 
-	"goshop/pkg/config"
-	dbMocks "goshop/pkg/dbs/mocks"
-	redisMocks "goshop/pkg/redis/mocks"
+	"freshcart/pkg/config"
+	dbMocks "freshcart/pkg/dbs/mocks"
+	redisMocks "freshcart/pkg/redis/mocks"
 )
 
 func init() {

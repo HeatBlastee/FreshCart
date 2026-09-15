@@ -4,15 +4,15 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	"google.golang.org/grpc"
 
-	notificationRepo "goshop/internal/notification/repository"
-	notificationSvc "goshop/internal/notification/service"
-	"goshop/internal/order/repository"
-	"goshop/internal/order/service"
-	userRepo "goshop/internal/user/repository"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/notification"
-	pb "goshop/proto/gen/go/order"
+	notificationRepo "freshcart/internal/notification/repository"
+	notificationSvc "freshcart/internal/notification/service"
+	"freshcart/internal/order/repository"
+	"freshcart/internal/order/service"
+	userRepo "freshcart/internal/user/repository"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/notification"
+	pb "freshcart/proto/gen/go/order"
 )
 
 func RegisterHandlers(svr *grpc.Server, db dbs.Database, validator validation.Validation) {

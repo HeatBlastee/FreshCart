@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"goshop/pkg/config"
+	"freshcart/pkg/config"
 )
 
 // HTTPError writes this AppError as an HTTP JSON error response.

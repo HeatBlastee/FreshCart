@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	userModel "goshop/internal/user/model"
-	userMocks "goshop/internal/user/repository/mocks"
+	userModel "freshcart/internal/user/model"
+	userMocks "freshcart/internal/user/repository/mocks"
 )
 
 func TestUserRepoLookup_ReturnsID(t *testing.T) {

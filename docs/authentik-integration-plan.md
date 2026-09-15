@@ -1,8 +1,8 @@
-# Authentik Integration Plan — GoShop
+# Authentik Integration Plan — FreshCart
 
 ## 1. Tổng quan
 
-Mục tiêu: Tích hợp **Authentik** (open-source identity provider) làm OIDC/OAuth2 provider cho flow user identity của GoShop, thay thế dần custom JWT + bcrypt hiện tại.
+Mục tiêu: Tích hợp **Authentik** (open-source identity provider) làm OIDC/OAuth2 provider cho flow user identity của FreshCart, thay thế dần custom JWT + bcrypt hiện tại.
 
 ---
 
@@ -40,7 +40,7 @@ Mục tiêu: Tích hợp **Authentik** (open-source identity provider) làm OIDC
 
 ```
 ┌──────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────┐
-│  Browser │────▶│  GoShop API  │────▶│   Authentik  │────▶│  User   │
+│  Browser │────▶│  FreshCart API  │────▶│   Authentik  │────▶│  User   │
 │  (FE)    │     │  /auth/login  │     │  /application/│     │         │
 └──────────┘     └──────────────┘     │  oidc/authorize│     └──────────┘
        ▲                  │            └──────────────┘
@@ -59,7 +59,7 @@ Mục tiêu: Tích hợp **Authentik** (open-source identity provider) làm OIDC
 
 ```
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│  GoShop gRPC │────▶│  GoShop API  │────▶│   Authentik  │
+│  FreshCart gRPC │────▶│  FreshCart API  │────▶│   Authentik  │
 │  (internal)  │     │  /oidc/token │     │  /oauth2/token│
 └──────────────┘     └──────────────┘     └──────────────┘
 ```
@@ -75,21 +75,21 @@ Mục tiêu: Tích hợp **Authentik** (open-source identity provider) làm OIDC
 
 ---
 
-## 4. Plan chi tiết (phía GoShop)
+## 4. Plan chi tiết (phía FreshCart)
 
-> **Lưu ý:** Authentik đã được deploy lên K8s bởi repo khác. Phần này chỉ liệt kê những gì cần làm trong repo GoShop.
+> **Lưu ý:** Authentik đã được deploy lên K8s bởi repo khác. Phần này chỉ liệt kê những gì cần làm trong repo FreshCart.
 
 ### Prerequisites từ Authentik (đã có sẵn)
 
-Sau khi Authentik đã chạy, cần lấy các giá trị này từ Admin UI (Applications → goshop-api → Show advanced settings):
+Sau khi Authentik đã chạy, cần lấy các giá trị này từ Admin UI (Applications → freshcart-api → Show advanced settings):
 
 | Config key | Mô tả | Ví dụ |
 |-----------|-------|-------|
-| `OIDC_ISSUER` | Issuer URL của OIDC app | `https://auth.cunghoclaptrinh.online/application/o/goshop-api/` |
-| `OIDC_CLIENT_ID` | Client ID | `goshop-api-client` |
+| `OIDC_ISSUER` | Issuer URL của OIDC app | `https://auth.cunghoclaptrinh.online/application/o/freshcart-api/` |
+| `OIDC_CLIENT_ID` | Client ID | `freshcart-api-client` |
 | `OIDC_CLIENT_SECRET` | Client secret | (từ Authentik UI) |
-| `OIDC_REDIRECT_URL` | Redirect URL sau khi login | `https://goshop.cunghoclaptrinh.online/api/v1/auth/callback` |
-| `OIDC_JWKS_URL` | JWKS endpoint để verify token | `https://auth.cunghoclaptrinh.online/application/o/goshop-api/jwks/` |
+| `OIDC_REDIRECT_URL` | Redirect URL sau khi login | `https://freshcart.cunghoclaptrinh.online/api/v1/auth/callback` |
+| `OIDC_JWKS_URL` | JWKS endpoint để verify token | `https://auth.cunghoclaptrinh.online/application/o/freshcart-api/jwks/` |
 | `OIDC_SCOPES` | Scopes yêu cầu | `openid,email,profile` |
 
 ### Phase 1 — Config & dependencies
@@ -124,11 +124,11 @@ File: [`config.sample.yaml`](config.sample.yaml)
 auth_mode: jwt
 
 # OIDC / Authentik — chỉ cần khi auth_mode = oidc
-oidc_issuer: https://auth.cunghoclaptrinh.online/application/o/goshop-api/
-oidc_client_id: goshop-api-client
+oidc_issuer: https://auth.cunghoclaptrinh.online/application/o/freshcart-api/
+oidc_client_id: freshcart-api-client
 oidc_client_secret: ######
-oidc_redirect_url: https://goshop.cunghoclaptrinh.online/api/v1/auth/callback
-oidc_jwks_url: https://auth.cunghoclaptrinh.online/application/o/goshop-api/jwks/
+oidc_redirect_url: https://freshcart.cunghoclaptrinh.online/api/v1/auth/callback
+oidc_jwks_url: https://auth.cunghoclaptrinh.online/application/o/freshcart-api/jwks/
 oidc_scopes: openid,email,profile
 ```
 
@@ -160,11 +160,11 @@ File: [`config.sample.yaml`](config.sample.yaml)
 
 ```yaml
 # OIDC / Authentik
-oidc_issuer: http://localhost:9000/application/o/goshop-api/
-oidc_client_id: goshop-api-client
+oidc_issuer: http://localhost:9000/application/o/freshcart-api/
+oidc_client_id: freshcart-api-client
 oidc_client_secret: ######
 oidc_redirect_url: http://localhost:8888/api/v1/auth/callback
-oidc_jwks_url: http://localhost:9000/application/o/goshop-api/jwks/
+oidc_jwks_url: http://localhost:9000/application/o/freshcart-api/jwks/
 oidc_scopes: openid,email,profile
 ```
 
@@ -322,7 +322,7 @@ import (
     "net/http"
 
     "github.com/gin-gonic/gin"
-    "goshop/pkg/oidc"
+    "freshcart/pkg/oidc"
 )
 
 // OIDCAuth validates Bearer token từ Authentik và inject user info vào context
@@ -374,7 +374,7 @@ import (
     "context"
     "google.golang.org/grpc"
     "google.golang.org/grpc/metadata"
-    "goshop/pkg/oidc"
+    "freshcart/pkg/oidc"
 )
 
 type OIDCInterceptor struct {
@@ -430,12 +430,12 @@ import (
     "net/http"
 
     "github.com/gin-gonic/gin"
-    "goshop/pkg/oidc"
+    "freshcart/pkg/oidc"
 )
 
 // Login redirects user đến Authentik authorization endpoint
 func (h *OIDCHandler) Login(c *gin.Context) {
-    url := h.validator.AuthCodeURL("goshop-state")
+    url := h.validator.AuthCodeURL("freshcart-state")
     c.Redirect(http.StatusFound, url)
 }
 
@@ -611,30 +611,30 @@ func NewServer(validator validation.Validation, db dbs.Database, cache redis.Red
 
 ### Phase 5 — K8s Manifests & CI/CD
 
-#### 5.1 Helm values cho GoShop
+#### 5.1 Helm values cho FreshCart
 
-Cập nhật Helm values của GoShop để inject OIDC env vars từ K8s Secret:
+Cập nhật Helm values của FreshCart để inject OIDC env vars từ K8s Secret:
 
 ```yaml
-# deploy/helm/goshop/values.yaml
+# deploy/helm/freshcart/values.yaml
 env:
-  OIDC_ISSUER: "https://auth.cunghoclaptrinh.online/application/o/goshop-api/"
-  OIDC_CLIENT_ID: "goshop-api-client"
+  OIDC_ISSUER: "https://auth.cunghoclaptrinh.online/application/o/freshcart-api/"
+  OIDC_CLIENT_ID: "freshcart-api-client"
   OIDC_CLIENT_SECRET:
     valueFrom:
       secretKeyRef:
-        name: goshop-oidc-secret
+        name: freshcart-oidc-secret
         key: client-secret
-  OIDC_REDIRECT_URL: "https://goshop.cunghoclaptrinh.online/api/v1/auth/callback"
-  OIDC_JWKS_URL: "https://auth.cunghoclaptrinh.online/application/o/goshop-api/jwks/"
+  OIDC_REDIRECT_URL: "https://freshcart.cunghoclaptrinh.online/api/v1/auth/callback"
+  OIDC_JWKS_URL: "https://auth.cunghoclaptrinh.online/application/o/freshcart-api/jwks/"
 ```
 
 Tạo K8s Secret trước khi deploy:
 
 ```bash
-kubectl create secret generic goshop-oidc-secret \
+kubectl create secret generic freshcart-oidc-secret \
   --from-literal=client-secret=<AUTHENTIK_CLIENT_SECRET> \
-  -n goshop
+  -n freshcart
 ```
 
 #### 5.2 CI/CD — `.github/workflows/ci.yml`
@@ -691,7 +691,7 @@ Với `auth_mode` flag, việc migration trở nên đơn giản — chỉ cần
 ## 5. Cấu trúc thư mục mới
 
 ```
-goshop/
+freshcart/
 ├── pkg/
 │   ├── oidc/
 │   │   ├── validator.go          # NEW — OIDC provider + JWKS token verification
@@ -715,7 +715,7 @@ goshop/
 │           └── user.go           # MODIFIED — GetUserByOIDCSubject (nếu cần)
 ├── deploy/
 │   └── helm/
-│       └── goshop/               # MODIFIED — + OIDC env vars từ K8s Secret
+│       └── freshcart/               # MODIFIED — + OIDC env vars từ K8s Secret
 │           └── values.yaml
 ├── config.sample.yaml            # MODIFIED — + OIDC config
 └── docs/
@@ -728,7 +728,7 @@ goshop/
 ## 6. Sequence diagram — OIDC Login Flow
 
 ```
-User    GoShop FE    GoShop API    Authentik    Postgres
+User    FreshCart FE    FreshCart API    Authentik    Postgres
  |          |             |             |            |
  |--GET /auth/login------>|             |            |
  |          |             |--302 /authorize-------->|
@@ -763,7 +763,7 @@ User    GoShop FE    GoShop API    Authentik    Postgres
 
 ## 8. Rollout plan
 
-> Authentik đã được deploy lên K8s bởi repo khác. Phần này chỉ liệt kê công việc phía GoShop.
+> Authentik đã được deploy lên K8s bởi repo khác. Phần này chỉ liệt kê công việc phía FreshCart.
 
 Feature flag `auth_mode` (`jwt` | `oidc`) cho phép chuyển đổi giữa 2 flow mà không cần deploy lại.
 

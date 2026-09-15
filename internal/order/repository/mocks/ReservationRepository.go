@@ -9,7 +9,7 @@ import (
 
 	mock "github.com/stretchr/testify/mock"
 
-	"goshop/internal/order/model"
+	"freshcart/internal/order/model"
 )
 
 func NewReservationRepository(t interface {

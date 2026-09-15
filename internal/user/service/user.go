@@ -7,13 +7,13 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	"golang.org/x/crypto/bcrypt"
 
-	"goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	"goshop/internal/user/repository"
-	"goshop/pkg/apperror"
-	"goshop/pkg/authentik"
-	"goshop/pkg/jtoken"
-	"goshop/pkg/utils"
+	"freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	"freshcart/internal/user/repository"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/authentik"
+	"freshcart/pkg/jtoken"
+	"freshcart/pkg/utils"
 )
 
 //go:generate mockery --name=UserService
@@ -64,7 +64,7 @@ func (s *userService) Login(ctx context.Context, req *domain.LoginReq) (*model.U
 
 	if s.authentik != nil {
 		// Headless OIDC: delegate credential check to Authentik via ROPG, then
-		// mint a GoShop JWT pair for the FE.
+		// mint a FreshCart JWT pair for the FE.
 		claims, err := s.authentik.PasswordLogin(ctx, req.Email, req.Password)
 		if err != nil {
 			logger.Errorf("Authentik PasswordLogin fail, email: %s, error: %s", req.Email, err)

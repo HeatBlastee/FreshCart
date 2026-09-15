@@ -3,8 +3,8 @@ package repository
 import (
 	"context"
 
-	"goshop/internal/user/model"
-	"goshop/pkg/dbs"
+	"freshcart/internal/user/model"
+	"freshcart/pkg/dbs"
 )
 
 //go:generate mockery --name=AddressRepository

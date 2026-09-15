@@ -13,8 +13,8 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/notification/model"
-	"goshop/pkg/config"
+	"freshcart/internal/notification/model"
+	"freshcart/pkg/config"
 )
 
 type stubPrefSvc struct {

@@ -11,7 +11,7 @@ export function useCart() {
   // Bridge cross-tab localStorage updates into the in-memory subscriber set.
   useEffect(() => {
     const handler = (e: StorageEvent) => {
-      if (e.key === 'goshop:cart:v1') {
+      if (e.key === 'freshcart:cart:v1') {
         // Triggering subscribers re-reads from localStorage, which now holds the new value.
         cartStore.add // no-op reference to keep the closure stable
       }

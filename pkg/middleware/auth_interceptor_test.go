@@ -8,8 +8,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	"goshop/pkg/config"
-	"goshop/pkg/jtoken"
+	"freshcart/pkg/config"
+	"freshcart/pkg/jtoken"
 )
 
 func init() {

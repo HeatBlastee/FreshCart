@@ -7,8 +7,8 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	"github.com/stretchr/testify/require"
 
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
 )
 
 func TestRoutesRegistersEndpoints(t *testing.T) {

@@ -1,12 +1,12 @@
 // Client-side cart. The server no longer stores carts; this module owns the source of truth
 // and exposes a small event-based API so React Query can subscribe via cartStore.subscribe().
 //
-// Storage key is schema-versioned (`goshop:cart:v1`) so future shape changes can migrate
+// Storage key is schema-versioned (`freshcart:cart:v1`) so future shape changes can migrate
 // without colliding with stale entries.
 
 import type { Product } from '@/types'
 
-const STORAGE_KEY = 'goshop:cart:v1'
+const STORAGE_KEY = 'freshcart:cart:v1'
 
 export interface CartItem {
   product_id: string

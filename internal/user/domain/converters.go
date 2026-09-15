@@ -1,6 +1,6 @@
 package domain
 
-import "goshop/internal/user/model"
+import "freshcart/internal/user/model"
 
 // UserFromModel maps the storage user to the API DTO, hiding internal fields such as
 // password and deleted_at. Defined here so handlers don't need a JSON-roundtrip

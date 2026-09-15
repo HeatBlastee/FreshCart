@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/pkg/apperror"
-	"goshop/pkg/response"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/response"
 )
 
 // cartSnapshotReq is the FE-supplied snapshot of the client-side cart. Telemetry only —

@@ -10,12 +10,12 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	domain "goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	"goshop/internal/user/repository/mocks"
-	"goshop/pkg/authentik"
-	"goshop/pkg/config"
-	"goshop/pkg/utils"
+	domain "freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	"freshcart/internal/user/repository/mocks"
+	"freshcart/pkg/authentik"
+	"freshcart/pkg/config"
+	"freshcart/pkg/utils"
 )
 
 // fakeAuthentik is a hand-rolled AuthentikClient stub. mockery v3 doesn't run

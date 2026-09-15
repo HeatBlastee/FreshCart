@@ -6,11 +6,11 @@ import (
 
 	"gorm.io/gorm"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/paging"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/paging"
 )
 
 //go:generate mockery --name=ProductRepository

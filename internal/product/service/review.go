@@ -5,11 +5,11 @@ import (
 
 	"github.com/quangdangfit/gocommon/validation"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	"goshop/internal/product/repository"
-	"goshop/pkg/apperror"
-	"goshop/pkg/paging"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	"freshcart/internal/product/repository"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/paging"
 )
 
 //go:generate mockery --name=ReviewService

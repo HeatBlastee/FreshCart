@@ -9,10 +9,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs/mocks"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs/mocks"
 )
 
 type OrderRepositoryTestSuite struct {

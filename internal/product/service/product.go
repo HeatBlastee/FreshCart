@@ -7,10 +7,10 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/quangdangfit/gocommon/validation"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	"goshop/internal/product/repository"
-	"goshop/pkg/paging"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	"freshcart/internal/product/repository"
+	"freshcart/pkg/paging"
 )
 
 var errInvalidStockQty = errors.New("stock quantity must be positive")

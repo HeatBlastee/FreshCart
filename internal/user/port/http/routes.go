@@ -4,12 +4,12 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/validation"
 
-	"goshop/internal/user/repository"
-	"goshop/internal/user/service"
-	"goshop/pkg/authentik"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/middleware"
+	"freshcart/internal/user/repository"
+	"freshcart/internal/user/service"
+	"freshcart/pkg/authentik"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/middleware"
 )
 
 func Routes(r *gin.RouterGroup, sqlDB dbs.Database, validator validation.Validation) {
@@ -45,7 +45,7 @@ func Routes(r *gin.RouterGroup, sqlDB dbs.Database, validator validation.Validat
 	var authMiddleware gin.HandlerFunc
 	var refreshAuthMiddleware gin.HandlerFunc
 
-	// Protected routes always use JWTAuth — both auth modes mint GoShop JWT
+	// Protected routes always use JWTAuth — both auth modes mint FreshCart JWT
 	// session tokens (the OIDC callback exchanges the Authentik ID token for
 	// our own JWT pair before redirecting back to the FE).
 	authMiddleware = middleware.JWTAuth()

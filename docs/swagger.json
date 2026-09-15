@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Swagger API for GoShop.",
-        "title": "GoShop Swagger API",
+        "description": "Swagger API for FreshCart.",
+        "title": "FreshCart Swagger API",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "Quang Dang",

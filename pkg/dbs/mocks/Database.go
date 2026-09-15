@@ -6,7 +6,7 @@ package mocks
 
 import (
 	"context"
-	"goshop/pkg/dbs"
+	"freshcart/pkg/dbs"
 
 	mock "github.com/stretchr/testify/mock"
 	"gorm.io/gorm"

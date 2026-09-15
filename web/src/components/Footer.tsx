@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-2 font-bold text-xl text-white mb-3">
               <Store className="h-6 w-6 text-primary-400" />
-              GoShop
+              FreshCart
             </Link>
             <p className="text-sm text-gray-400">
               Your one-stop destination for all your shopping needs. Quality products at great prices.
@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} GoShop. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} FreshCart. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	srvMocks "goshop/internal/product/service/mocks"
-	"goshop/pkg/config"
-	"goshop/pkg/response"
-	"goshop/pkg/utils"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	srvMocks "freshcart/internal/product/service/mocks"
+	"freshcart/pkg/config"
+	"freshcart/pkg/response"
+	"freshcart/pkg/utils"
 )
 
 type CategoryHandlerTestSuite struct {

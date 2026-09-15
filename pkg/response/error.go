@@ -3,7 +3,7 @@ package response
 import (
 	"github.com/gin-gonic/gin"
 
-	"goshop/pkg/apperror"
+	"freshcart/pkg/apperror"
 )
 
 // Error sends an error response. If err is an *apperror.AppError, the HTTP status

@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/user/model"
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
+	"freshcart/internal/user/model"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
 )
 
 type WishlistRepositoryTestSuite struct {

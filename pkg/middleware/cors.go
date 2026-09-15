@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"goshop/pkg/config"
+	"freshcart/pkg/config"
 )
 
 func CORS() gin.HandlerFunc {

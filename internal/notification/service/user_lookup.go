@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	userRepo "goshop/internal/user/repository"
+	userRepo "freshcart/internal/user/repository"
 )
 
 // userRepoLookup adapts internal/user/repository.UserRepository to the UserLookup contract

@@ -10,7 +10,7 @@ formatters:
   settings:
     goimports:
       local-prefixes:
-        - goshop
+        - freshcart
   exclusions:
     paths:
       - docs

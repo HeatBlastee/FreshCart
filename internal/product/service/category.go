@@ -5,9 +5,9 @@ import (
 
 	"github.com/quangdangfit/gocommon/validation"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
-	"goshop/internal/product/repository"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
+	"freshcart/internal/product/repository"
 )
 
 //go:generate mockery --name=CategoryService

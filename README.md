@@ -1,9 +1,4 @@
-# GoShop
-
-[![CI](https://github.com/quangdangfit/goshop/workflows/CI/badge.svg)](https://github.com/quangdangfit/goshop/actions)
-[![codecov](https://codecov.io/gh/quangdangfit/goshop/graph/badge.svg?token=78BO8FQDB0)](https://codecov.io/gh/quangdangfit/goshop)
-![Go Version](https://img.shields.io/github/go-mod/go-version/quangdangfit/goshop?style=flat-square)
-[![License](https://img.shields.io/github/license/jrapoport/gothic?style=flat-square)](https://github.com/quangdangfit/goshop/blob/master/LICENSE)
+# FreshCart
 
 A production-ready e-commerce application built with Go (REST + gRPC backend) and React (web frontend).
 
@@ -77,8 +72,8 @@ Docker Compose for local dependencies: [docker-compose-template](https://github.
 **1. Clone and configure**
 
 ```bash
-git clone https://github.com/quangdangfit/goshop.git
-cd goshop
+git clone <your-repo-url> freshcart
+cd freshcart
 cp config.sample.yaml config.yaml
 ```
 
@@ -89,7 +84,7 @@ environment: production
 http_port: 8888
 grpc_port: 8889
 auth_secret: your-secret-key
-database_uri: postgres://username:password@localhost:5432/goshop
+database_uri: postgres://username:password@localhost:5432/freshcart
 redis_uri: localhost:6379
 redis_password:
 redis_db: 0
@@ -102,7 +97,7 @@ stripe_publishable_key: pk_test_xxx
 # SMTP (notifications — point at MailHog locally: host=localhost, port=1025)
 smtp_host:
 smtp_port: 25
-email_from: no-reply@goshop.local
+email_from: no-reply@freshcart.local
 ```
 
 **2. Apply database migrations**
@@ -112,7 +107,7 @@ The app no longer runs `AutoMigrate` — schema lives in versioned SQL files und
 
 ```bash
 brew install golang-migrate   # or: go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
-DATABASE_URI="postgres://username:password@localhost:5432/goshop?sslmode=disable" make migrate-up
+DATABASE_URI="postgres://username:password@localhost:5432/freshcart?sslmode=disable" make migrate-up
 ```
 
 See [`migrations/README.md`](migrations/README.md) for conventions and the
@@ -273,7 +268,7 @@ make migrate-new name=add_index  # scaffold the next NNNN_*.{up,down}.sql pair
 ```
 
 Set `DATABASE_URI` in your shell to override the default
-(`postgres://postgres:test@localhost:5432/goshop?sslmode=disable`).
+(`postgres://postgres:test@localhost:5432/freshcart?sslmode=disable`).
 
 **Regenerate mocks**
 

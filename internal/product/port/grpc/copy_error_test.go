@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/product/model"
-	srvMocks "goshop/internal/product/service/mocks"
-	"goshop/pkg/paging"
-	pb "goshop/proto/gen/go/product"
+	"freshcart/internal/product/model"
+	srvMocks "freshcart/internal/product/service/mocks"
+	"freshcart/pkg/paging"
+	pb "freshcart/proto/gen/go/product"
 )
 
 func nanProduct() *model.Product {

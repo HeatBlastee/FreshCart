@@ -12,8 +12,8 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"goshop/internal/notification/model"
-	dbsMocks "goshop/pkg/dbs/mocks"
+	"freshcart/internal/notification/model"
+	dbsMocks "freshcart/pkg/dbs/mocks"
 )
 
 func newSQLMockDB(t *testing.T) (*gorm.DB, sqlmock.Sqlmock) {

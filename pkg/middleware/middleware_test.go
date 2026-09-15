@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"goshop/pkg/config"
-	"goshop/pkg/jtoken"
-	redisMocks "goshop/pkg/redis/mocks"
+	"freshcart/pkg/config"
+	"freshcart/pkg/jtoken"
+	redisMocks "freshcart/pkg/redis/mocks"
 )
 
 func setupGinTest() {

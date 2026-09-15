@@ -3,7 +3,7 @@ package domain
 import (
 	"time"
 
-	"goshop/pkg/paging"
+	"freshcart/pkg/paging"
 )
 
 type Order struct {

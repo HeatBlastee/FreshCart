@@ -119,7 +119,7 @@ func newClient(base string) *Client {
 		ClientID:     "cid",
 		ClientSecret: "csec",
 		AdminToken:   "tok",
-		FlowSlug:     "goshop-ropg",
+		FlowSlug:     "freshcart-ropg",
 	})
 }
 

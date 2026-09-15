@@ -9,10 +9,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	domain "goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	"goshop/internal/user/repository/mocks"
-	"goshop/pkg/config"
+	domain "freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	"freshcart/internal/user/repository/mocks"
+	"freshcart/pkg/config"
 )
 
 type WishlistServiceTestSuite struct {

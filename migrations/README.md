@@ -51,7 +51,7 @@ make migrate-new name=add_orders_warehouse_id
 ```
 
 The Makefile reads `DATABASE_URI` from the environment (defaults to
-`postgres://postgres:test@localhost:5432/goshop?sslmode=disable` — match your
+`postgres://postgres:test@localhost:5432/freshcart?sslmode=disable` — match your
 local Postgres).
 
 ## Production / Kubernetes

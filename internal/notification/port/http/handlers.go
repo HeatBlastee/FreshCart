@@ -5,8 +5,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"goshop/internal/notification/service"
-	"goshop/pkg/response"
+	"freshcart/internal/notification/service"
+	"freshcart/pkg/response"
 )
 
 type Handler struct {

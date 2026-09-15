@@ -13,17 +13,17 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	_ "goshop/docs"
-	notificationHttp "goshop/internal/notification/port/http"
-	orderHttp "goshop/internal/order/port/http"
-	paymentHttp "goshop/internal/payment/port/http"
-	productHttp "goshop/internal/product/port/http"
-	userHttp "goshop/internal/user/port/http"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/middleware"
-	"goshop/pkg/redis"
-	"goshop/pkg/response"
+	_ "freshcart/docs"
+	notificationHttp "freshcart/internal/notification/port/http"
+	orderHttp "freshcart/internal/order/port/http"
+	paymentHttp "freshcart/internal/payment/port/http"
+	productHttp "freshcart/internal/product/port/http"
+	userHttp "freshcart/internal/user/port/http"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/middleware"
+	"freshcart/pkg/redis"
+	"freshcart/pkg/response"
 )
 
 type Server struct {

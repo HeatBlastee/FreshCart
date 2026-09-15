@@ -3,9 +3,9 @@ package service
 import (
 	"context"
 
-	"goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	"goshop/internal/user/repository"
+	"freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	"freshcart/internal/user/repository"
 )
 
 //go:generate mockery --name=WishlistService

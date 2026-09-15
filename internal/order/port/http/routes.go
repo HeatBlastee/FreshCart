@@ -4,15 +4,15 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/validation"
 
-	notificationRepo "goshop/internal/notification/repository"
-	notificationSvc "goshop/internal/notification/service"
-	"goshop/internal/order/repository"
-	"goshop/internal/order/service"
-	userRepository "goshop/internal/user/repository"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/middleware"
-	"goshop/pkg/notification"
+	notificationRepo "freshcart/internal/notification/repository"
+	notificationSvc "freshcart/internal/notification/service"
+	"freshcart/internal/order/repository"
+	"freshcart/internal/order/service"
+	userRepository "freshcart/internal/user/repository"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/middleware"
+	"freshcart/pkg/notification"
 )
 
 func Routes(r *gin.RouterGroup, db dbs.Database, validator validation.Validation) {

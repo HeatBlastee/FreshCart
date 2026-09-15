@@ -3,8 +3,8 @@ package grpc
 import (
 	"time"
 
-	"goshop/internal/user/model"
-	pb "goshop/proto/gen/go/user"
+	"freshcart/internal/user/model"
+	pb "freshcart/proto/gen/go/user"
 )
 
 // userInfoFromModel returns the gRPC UserInfo for a storage user. Hides internal fields

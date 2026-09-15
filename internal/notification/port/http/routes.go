@@ -3,10 +3,10 @@ package http
 import (
 	"github.com/gin-gonic/gin"
 
-	"goshop/internal/notification/repository"
-	"goshop/internal/notification/service"
-	"goshop/pkg/dbs"
-	"goshop/pkg/middleware"
+	"freshcart/internal/notification/repository"
+	"freshcart/internal/notification/service"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/middleware"
 )
 
 func Routes(r *gin.RouterGroup, db dbs.Database) {

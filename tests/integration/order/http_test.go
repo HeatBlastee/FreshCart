@@ -12,11 +12,11 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	productModel "goshop/internal/product/model"
-	userModel "goshop/internal/user/model"
-	"goshop/pkg/jtoken"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	productModel "freshcart/internal/product/model"
+	userModel "freshcart/internal/user/model"
+	"freshcart/pkg/jtoken"
 )
 
 // Place Order

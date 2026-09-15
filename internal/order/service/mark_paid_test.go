@@ -12,13 +12,13 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/order/model"
-	orderMocks "goshop/internal/order/repository/mocks"
-	serviceMocks "goshop/internal/order/service/mocks"
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
-	"goshop/pkg/eventbus"
-	notifMocks "goshop/pkg/notification/mocks"
+	"freshcart/internal/order/model"
+	orderMocks "freshcart/internal/order/repository/mocks"
+	serviceMocks "freshcart/internal/order/service/mocks"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
+	"freshcart/pkg/eventbus"
+	notifMocks "freshcart/pkg/notification/mocks"
 )
 
 type markPaidFixture struct {

@@ -11,8 +11,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/model"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/model"
 )
 
 // Get Product Detail

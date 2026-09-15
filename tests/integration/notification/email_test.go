@@ -17,7 +17,7 @@ import (
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/wait"
 
-	"goshop/pkg/notification"
+	"freshcart/pkg/notification"
 )
 
 // TestSMTPSender_AgainstMailHog: spin up MailHog (which exposes both SMTP on :1025 and a
@@ -56,10 +56,10 @@ func TestSMTPSender_AgainstMailHog(t *testing.T) {
 	sender := notification.NewSMTPSender(notification.SMTPConfig{
 		Host: host,
 		Port: smtpPortInt,
-		From: "shop@goshop.test",
+		From: "shop@freshcart.test",
 	})
 
-	require.NoError(t, sender.Send(ctx, "buyer@goshop.test", "Order #ABC", "your order is in"))
+	require.NoError(t, sender.Send(ctx, "buyer@freshcart.test", "Order #ABC", "your order is in"))
 
 	// MailHog v2 API: /api/v2/messages — poll briefly to allow the SMTP handoff to land.
 	apiURL := fmt.Sprintf("http://%s:%s/api/v2/messages", host, apiPort.Port())

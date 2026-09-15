@@ -9,11 +9,11 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/order/model"
-	"goshop/internal/order/service/mocks"
-	"goshop/pkg/config"
-	"goshop/pkg/paging"
-	pb "goshop/proto/gen/go/order"
+	"freshcart/internal/order/model"
+	"freshcart/internal/order/service/mocks"
+	"freshcart/pkg/config"
+	"freshcart/pkg/paging"
+	pb "freshcart/proto/gen/go/order"
 )
 
 type OrderHandlerTestSuite struct {

@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"goshop/internal/notification/model"
-	"goshop/internal/notification/repository"
+	"freshcart/internal/notification/model"
+	"freshcart/internal/notification/repository"
 )
 
 //go:generate mockery --name=PreferenceService

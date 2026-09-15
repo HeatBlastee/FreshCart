@@ -12,9 +12,9 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"goshop/internal/product/model"
-	"goshop/pkg/config"
-	dbsMocks "goshop/pkg/dbs/mocks"
+	"freshcart/internal/product/model"
+	"freshcart/pkg/config"
+	dbsMocks "freshcart/pkg/dbs/mocks"
 )
 
 func newReviewSQLMockGormDB(t *testing.T) (*gorm.DB, sqlmock.Sqlmock) {

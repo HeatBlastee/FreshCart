@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/product/domain"
-	"goshop/internal/product/service"
-	"goshop/pkg/apperror"
-	"goshop/pkg/response"
+	"freshcart/internal/product/domain"
+	"freshcart/internal/product/service"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/response"
 )
 
 type CategoryHandler struct {

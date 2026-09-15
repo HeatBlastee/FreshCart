@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 
-	"goshop/pkg/utils"
+	"freshcart/pkg/utils"
 )
 
 type Product struct {

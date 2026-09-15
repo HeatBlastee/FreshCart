@@ -3,7 +3,7 @@ package middleware
 import (
 	"github.com/gin-gonic/gin"
 
-	"goshop/pkg/apperror"
+	"freshcart/pkg/apperror"
 )
 
 func AdminOnly() gin.HandlerFunc {

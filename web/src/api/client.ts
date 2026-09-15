@@ -10,8 +10,8 @@ export const apiClient = axios.create({
 })
 
 // Keys for localStorage
-export const ACCESS_TOKEN_KEY = 'goshop_access_token'
-export const REFRESH_TOKEN_KEY = 'goshop_refresh_token'
+export const ACCESS_TOKEN_KEY = 'freshcart_access_token'
+export const REFRESH_TOKEN_KEY = 'freshcart_refresh_token'
 
 export const getAccessToken = () => localStorage.getItem(ACCESS_TOKEN_KEY)
 export const getRefreshToken = () => localStorage.getItem(REFRESH_TOKEN_KEY)

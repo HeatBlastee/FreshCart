@@ -10,13 +10,13 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 	"github.com/stretchr/testify/require"
 
-	orderModel "goshop/internal/order/model"
-	orderRepo "goshop/internal/order/repository"
-	orderSvc "goshop/internal/order/service"
-	productModel "goshop/internal/product/model"
-	userModel "goshop/internal/user/model"
-	"goshop/pkg/notification"
-	"goshop/tests/testutil"
+	orderModel "freshcart/internal/order/model"
+	orderRepo "freshcart/internal/order/repository"
+	orderSvc "freshcart/internal/order/service"
+	productModel "freshcart/internal/product/model"
+	userModel "freshcart/internal/user/model"
+	"freshcart/pkg/notification"
+	"freshcart/tests/testutil"
 )
 
 // TestSweepExpiredReservations_ReleasesAndCancels: a pending_payment order whose reservation

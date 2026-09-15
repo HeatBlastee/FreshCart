@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	domain "goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	srvMocks "goshop/internal/user/service/mocks"
-	"goshop/pkg/config"
-	"goshop/pkg/response"
-	"goshop/pkg/utils"
+	domain "freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	srvMocks "freshcart/internal/user/service/mocks"
+	"freshcart/pkg/config"
+	"freshcart/pkg/response"
+	"freshcart/pkg/utils"
 )
 
 type WishlistHandlerTestSuite struct {

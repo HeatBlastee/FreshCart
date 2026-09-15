@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/user/domain"
-	"goshop/internal/user/service"
-	"goshop/pkg/apperror"
-	"goshop/pkg/response"
+	"freshcart/internal/user/domain"
+	"freshcart/internal/user/service"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/response"
 )
 
 type UserHandler struct {

@@ -17,7 +17,7 @@ import (
 	"strings"
 	"time"
 
-	"goshop/pkg/payment"
+	"freshcart/pkg/payment"
 )
 
 const (

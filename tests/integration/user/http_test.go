@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"testing"
 
-	domain "goshop/internal/user/domain"
-	"goshop/internal/user/model"
-	"goshop/pkg/jtoken"
+	domain "freshcart/internal/user/domain"
+	"freshcart/internal/user/model"
+	"freshcart/pkg/jtoken"
 
 	"github.com/stretchr/testify/assert"
 )

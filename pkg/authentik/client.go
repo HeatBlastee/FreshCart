@@ -1,5 +1,5 @@
 // Package authentik is a thin HTTP client to Authentik used in headless mode:
-// goshop renders all auth UI itself and talks to Authentik server-to-server
+// freshcart renders all auth UI itself and talks to Authentik server-to-server
 // for password login (ROPG), self-service registration, and to look up the
 // federated source slug for "Login with Google / Facebook" deep links.
 package authentik
@@ -39,7 +39,7 @@ type Config struct {
 	ClientID     string // OAuth2 application client_id (unused with flow executor; kept for future)
 	ClientSecret string // OAuth2 application client_secret (unused; kept for future)
 	AdminToken   string // long-lived API token with user-write scope
-	FlowSlug     string // authentication flow slug, e.g. "goshop-ropg"
+	FlowSlug     string // authentication flow slug, e.g. "freshcart-ropg"
 }
 
 func New(cfg Config) *Client {

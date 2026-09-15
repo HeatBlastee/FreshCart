@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/product/model"
-	srvMocks "goshop/internal/product/service/mocks"
-	"goshop/pkg/config"
-	redisMocks "goshop/pkg/redis/mocks"
+	"freshcart/internal/product/model"
+	srvMocks "freshcart/internal/product/service/mocks"
+	"freshcart/pkg/config"
+	redisMocks "freshcart/pkg/redis/mocks"
 )
 
 func newAddStockHandler(t *testing.T) (*ProductHandler, *srvMocks.ProductService, *redisMocks.Redis) {

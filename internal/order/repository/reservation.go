@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"goshop/internal/order/model"
-	"goshop/pkg/dbs"
+	"freshcart/internal/order/model"
+	"freshcart/pkg/dbs"
 )
 
 //go:generate mockery --name=ReservationRepository

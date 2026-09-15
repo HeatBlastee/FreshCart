@@ -9,14 +9,14 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
-	orderGRPC "goshop/internal/order/port/grpc"
-	productGRPC "goshop/internal/product/port/grpc"
-	userGRPC "goshop/internal/user/port/grpc"
-	"goshop/pkg/config"
-	"goshop/pkg/dbs"
-	"goshop/pkg/middleware"
-	"goshop/pkg/oidc"
-	"goshop/pkg/redis"
+	orderGRPC "freshcart/internal/order/port/grpc"
+	productGRPC "freshcart/internal/product/port/grpc"
+	userGRPC "freshcart/internal/user/port/grpc"
+	"freshcart/pkg/config"
+	"freshcart/pkg/dbs"
+	"freshcart/pkg/middleware"
+	"freshcart/pkg/oidc"
+	"freshcart/pkg/redis"
 )
 
 type Server struct {

@@ -6,8 +6,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	"goshop/pkg/apperror"
-	"goshop/pkg/oidc"
+	"freshcart/pkg/apperror"
+	"freshcart/pkg/oidc"
 )
 
 // OIDCInterceptor validates Authentik-issued Bearer ID tokens on incoming

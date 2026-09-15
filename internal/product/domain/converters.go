@@ -1,6 +1,6 @@
 package domain
 
-import "goshop/internal/product/model"
+import "freshcart/internal/product/model"
 
 // CategoryFromModel maps the storage model to the API DTO. Defined here to keep
 // the handler layer free of conversion boilerplate and to remove the unreachable

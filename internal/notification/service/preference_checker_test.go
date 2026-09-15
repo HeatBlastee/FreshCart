@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"goshop/internal/notification/model"
+	"freshcart/internal/notification/model"
 )
 
 type stubLookup struct {

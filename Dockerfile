@@ -16,13 +16,13 @@ COPY . .
 RUN --mount=type=cache,target=/go/pkg/mod \
     --mount=type=cache,target=/root/.cache/go-build \
     CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH \
-    go build -trimpath -ldflags="-s -w" -o /out/goshop ./cmd/api
+    go build -trimpath -ldflags="-s -w" -o /out/freshcart ./cmd/api
 
 FROM alpine:3.21
 
 RUN apk add --no-cache ca-certificates tzdata
 WORKDIR /app
-COPY --from=builder /out/goshop /app/goshop
+COPY --from=builder /out/freshcart /app/freshcart
 COPY config.sample.yaml /app/config.yaml
 # Migrations bundled for operators / init-containers; the app does NOT run them on startup.
 # Apply via the golang-migrate CLI (sidecar or k8s Job):
@@ -30,4 +30,4 @@ COPY config.sample.yaml /app/config.yaml
 COPY migrations /app/migrations
 
 EXPOSE 8888
-ENTRYPOINT ["/app/goshop"]
+ENTRYPOINT ["/app/freshcart"]

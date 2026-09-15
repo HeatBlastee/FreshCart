@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"goshop/internal/order/domain"
-	"goshop/internal/order/model"
-	orderMocks "goshop/internal/order/repository/mocks"
-	"goshop/pkg/config"
+	"freshcart/internal/order/domain"
+	"freshcart/internal/order/model"
+	orderMocks "freshcart/internal/order/repository/mocks"
+	"freshcart/pkg/config"
 )
 
 type CouponServiceTestSuite struct {

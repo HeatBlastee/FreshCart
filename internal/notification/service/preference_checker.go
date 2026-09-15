@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"goshop/internal/notification/repository"
-	"goshop/pkg/notification"
+	"freshcart/internal/notification/repository"
+	"freshcart/pkg/notification"
 )
 
 // UserLookup resolves a user email to a user ID. Decoupled from internal/user to avoid

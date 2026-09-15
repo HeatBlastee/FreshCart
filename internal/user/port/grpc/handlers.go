@@ -5,10 +5,10 @@ import (
 
 	"github.com/quangdangfit/gocommon/logger"
 
-	"goshop/internal/user/domain"
-	"goshop/internal/user/service"
-	"goshop/pkg/apperror"
-	pb "goshop/proto/gen/go/user"
+	"freshcart/internal/user/domain"
+	"freshcart/internal/user/service"
+	"freshcart/pkg/apperror"
+	pb "freshcart/proto/gen/go/user"
 )
 
 type UserHandler struct {

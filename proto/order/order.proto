@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package order;
 
-option go_package = "goshop/proto/gen/go/order;order";
+option go_package = "freshcart/proto/gen/go/order;order";
 
 service OrderService {
   rpc PlaceOrder(PlaceOrderReq) returns (PlaceOrderRes);

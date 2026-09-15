@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"goshop/internal/order/model"
+	"freshcart/internal/order/model"
 )
 
 func TestCouponFromModel(t *testing.T) {

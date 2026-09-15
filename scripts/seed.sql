@@ -1,5 +1,5 @@
--- Seed data for GoShop
--- Run: psql -U postgres -d goshop -f scripts/seed.sql
+-- Seed data for FreshCart
+-- Run: psql -U postgres -d freshcart -f scripts/seed.sql
 
 -- ============================================================
 -- Categories
@@ -185,10 +185,10 @@ ON CONFLICT DO NOTHING;
 -- ============================================================
 INSERT INTO users (id, email, password, role, created_at, updated_at)
 VALUES
-  ('user-customer', 'customer@goshop.local',
+  ('user-customer', 'customer@freshcart.local',
    '$2a$10$1IHKAaa2QA7sBwVfMtWwm.5pLTeWrxnkFSSj.nLGV.BDCzSAw5EjC', -- password123
    'customer', NOW(), NOW()),
-  ('user-admin',    'admin@goshop.local',
+  ('user-admin',    'admin@freshcart.local',
    '$2a$10$31sruWVh64GtIJ9pQj..LuqBtTVqDEmkUNBHelX3/JhXSM9XqItYy', -- admin123
    'admin',    NOW(), NOW())
 ON CONFLICT DO NOTHING;

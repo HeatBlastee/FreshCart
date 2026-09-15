@@ -1,0 +1,86 @@
+databases:
+  - name: freshcart-db
+    plan: basic-256mb
+    databaseName: freshcart
+    user: freshcart
+
+services:
+  # Backend: Go REST API (the gRPC port is not exposed on Render's single-port
+  # web services; the frontend only talks to the REST API).
+  - type: web
+    name: freshcart-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: environment
+        value: production
+      - key: http_port
+        value: 8888
+      - key: grpc_port
+        value: 8889
+      - key: auth_mode
+        value: jwt
+      - key: auth_secret
+        generateValue: true
+      - key: database_uri
+        fromDatabase:
+          name: freshcart-db
+          property: connectionString
+      # This app wants a plain "host:port" address (pkg/redis passes it
+      # straight to go-redis's Addr), not a redis:// URL — copy the Host and
+      # Port shown on the Render Key Value dashboard as "host:port" here, and
+      # the password into redis_password below. Not auto-wired because
+      # Render's fromService property names for Key Value services can
+      # change; verify against your dashboard before relying on this.
+      - key: redis_uri
+        sync: false
+      - key: redis_password
+        sync: false
+      - key: redis_db
+        value: 0
+      # "*" is safe here: the frontend proxies /api/* to this service via a
+      # same-origin rewrite (see freshcart-web below), so the browser never
+      # makes a cross-origin request to this API in normal use.
+      - key: cors_allowed_origins
+        value: "*"
+      - key: rate_limit_requests
+        value: 100
+      - key: rate_limit_window_seconds
+        value: 60
+      # Stripe and SMTP hold real secrets — set these manually in the Render
+      # dashboard rather than committing values here.
+      - key: stripe_secret_key
+        sync: false
+      - key: stripe_webhook_secret
+        sync: false
+      - key: stripe_publishable_key
+        sync: false
+      - key: smtp_host
+        sync: false
+      - key: smtp_port
+        value: 587
+      - key: smtp_user
+        sync: false
+      - key: smtp_password
+        sync: false
+      - key: email_from
+        value: no-reply@freshcart.example.com
+
+  # Frontend: static Vite/React build. Rewrites /api/* to the backend service
+  # so the frontend's relative "/api/v1" baseURL keeps working unchanged.
+  - type: web
+    name: freshcart-web
+    runtime: static
+    rootDir: web
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://freshcart-api.onrender.com/api/*
+      - type: rewrite
+        source: /*
+        destination: /index.html

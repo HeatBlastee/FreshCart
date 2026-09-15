@@ -64,6 +64,7 @@ func main() {
 		Address:  cfg.RedisURI,
 		Password: cfg.RedisPassword,
 		Database: cfg.RedisDB,
+		TLS:      cfg.RedisTLS,
 	})
 
 	httpSvr := httpServer.NewServer(validator, db, cache)

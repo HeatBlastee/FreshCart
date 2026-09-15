@@ -31,16 +31,21 @@ services:
           property: connectionString
       # This app wants a plain "host:port" address (pkg/redis passes it
       # straight to go-redis's Addr), not a redis:// URL — copy the Host and
-      # Port shown on the Render Key Value dashboard as "host:port" here, and
-      # the password into redis_password below. Not auto-wired because
-      # Render's fromService property names for Key Value services can
-      # change; verify against your dashboard before relying on this.
+      # Port from your Redis provider (Render Key Value or an external one
+      # like Upstash) as "host:port" here, and the password into
+      # redis_password below. Not auto-wired because Render's fromService
+      # property names for Key Value services can change; verify against
+      # your dashboard before relying on this.
       - key: redis_uri
         sync: false
       - key: redis_password
         sync: false
       - key: redis_db
         value: 0
+      # Upstash (and most managed Redis, including Render Key Value) require
+      # TLS — set to false only for a local/plaintext Redis.
+      - key: redis_tls
+        value: "true"
       # "*" is safe here: the frontend proxies /api/* to this service via a
       # same-origin rewrite (see freshcart-web below), so the browser never
       # makes a cross-origin request to this API in normal use.

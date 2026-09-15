@@ -38,6 +38,7 @@ type Schema struct {
 	RedisURI      string `env:"redis_uri"`
 	RedisPassword string `env:"redis_password"`
 	RedisDB       int    `env:"redis_db"`
+	RedisTLS      bool   `env:"redis_tls" envDefault:"false"`
 
 	CORSAllowedOrigins     string `env:"cors_allowed_origins" envDefault:"*"`
 	RateLimitRequests      int    `env:"rate_limit_requests" envDefault:"100"`

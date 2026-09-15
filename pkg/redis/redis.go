@@ -2,6 +2,7 @@ package redis
 
 import (
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -34,6 +35,9 @@ type Config struct {
 	Address  string
 	Password string
 	Database int
+	// TLS enables a TLS connection, required by managed providers such as
+	// Upstash and Render's Key Value that don't offer a plaintext endpoint.
+	TLS bool
 }
 
 type redis struct {
@@ -45,11 +49,15 @@ func New(config Config) Redis {
 	ctx, cancel := context.WithTimeout(context.Background(), Timeout*time.Second)
 	defer cancel()
 
-	rdb := goredis.NewClient(&goredis.Options{
+	opts := &goredis.Options{
 		Addr:     config.Address,
 		Password: config.Password,
 		DB:       config.Database,
-	})
+	}
+	if config.TLS {
+		opts.TLSConfig = &tls.Config{MinVersion: tls.VersionTLS12}
+	}
+	rdb := goredis.NewClient(opts)
 
 	pong, err := rdb.Ping(ctx).Result()
 	if err != nil {

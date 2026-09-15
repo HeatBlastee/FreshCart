@@ -43,7 +43,14 @@ type database struct {
 }
 
 func NewDatabase(uri string) (Database, error) {
-	db, err := gorm.Open(postgres.Open(uri), &gorm.Config{
+	// PreferSimpleProtocol disables server-side prepared statement caching,
+	// which is required for connection poolers running in transaction mode
+	// (e.g. Neon's "-pooler" endpoints, PgBouncer) since a cached statement
+	// can be prepared on one backend connection and executed on another.
+	db, err := gorm.Open(postgres.New(postgres.Config{
+		DSN:                  uri,
+		PreferSimpleProtocol: true,
+	}), &gorm.Config{
 		Logger: gormLogger.Default.LogMode(gormLogger.Warn),
 	})
 	if err != nil {
